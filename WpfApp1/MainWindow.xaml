@@ -1,0 +1,90 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+              Title="ОСАГО Калькулятор" Height="450" Width="800">
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Год рождения:" />
+        <TextBox Grid.Row="0" Grid.Column="1" x:Name="DriverBirthYearTextBox" Width="100" />
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Год получения прав:" />
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="DriverLicenseYearTextBox" Width="100" />
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Место жительства:" />
+        <ComboBox Grid.Row="2" Grid.Column="1" x:Name="DriverResidenceComboBox" Width="200">
+            <ComboBoxItem>Пенза</ComboBoxItem>
+            <ComboBoxItem>Кузнецк</ComboBoxItem>
+            <ComboBoxItem>Пензенская область</ComboBoxItem>
+            <ComboBoxItem>Сызрань</ComboBoxItem>
+            <ComboBoxItem>Самара</ComboBoxItem>
+            <ComboBoxItem>Тольятти</ComboBoxItem>
+            <ComboBoxItem>Димитровград</ComboBoxItem>
+            <ComboBoxItem>Ульяновск</ComboBoxItem>
+        </ComboBox>
+
+        <Label Grid.Row="3" Grid.Column="0" Content="Категория ТС:" />
+        <ComboBox Grid.Row="3" Grid.Column="1" x:Name="VehicleCategoryComboBox" Width="200">
+            <ComboBoxItem>Мотоциклы, мотороллеры (категории А)</ComboBoxItem>
+            <ComboBoxItem>Легковые автомобили (категории В)</ComboBoxItem>
+            <ComboBoxItem>Грузовые автомобили (категории С)</ComboBoxItem>
+        </ComboBox>
+
+        <Label Grid.Row="4" Grid.Column="0" Content="Мощность двигателя (л.с.):" />
+        <TextBox Grid.Row="4" Grid.Column="1" x:Name="VehicleEnginePowerTextBox" Width="100" />
+
+        <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Content="Рассчитать ОСАГО" Click="CalculateOSAGO_Click" Margin="0,10,0,0" />
+
+        <GroupBox Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Header="Результат" Margin="0,10,0,0">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Content="Коэффициент территории:" />
+                <TextBlock Grid.Row="0" Grid.Column="1" x:Name="TerritoryCoefficient" />
+
+                <Label Grid.Row="1" Grid.Column="0" Content="Коэффициент возраста и стажа:" />
+                <TextBlock Grid.Row="1" Grid.Column="1" x:Name="AgeAndExperienceCoefficient" />
+
+                <Label Grid.Row="2" Grid.Column="0" Content="Коэффициент бонус:" />
+                <TextBlock Grid.Row="2" Grid.Column="1" x:Name="BonusCoefficient" />
+
+                <Label Grid.Row="3" Grid.Column="0" Content="Коэффициент мощности:" />
+                <TextBlock Grid.Row="3" Grid.Column="1" x:Name="PowerCoefficient" />
+
+                <Label Grid.Row="4" Grid.Column="0" Content="Итоговая сумма ОСАГО:" />
+                <TextBlock Grid.Row="4" Grid.Column="1" x:Name="OSAGOPrice" />
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
+
